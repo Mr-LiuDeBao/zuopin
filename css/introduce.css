@@ -1,0 +1,34 @@
+*{
+    cursor: url(../img/photo/鼠标.png),
+    default;
+}
+body{
+    background: url(../img/photo/星空背景.jpg);
+}
+.header{
+    width: 100%;
+    height: 85px;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+#logo{
+    margin: 0 50px;
+    height: 85px;
+    float: left;
+    width: 123px;
+    height: 85px;
+    object-fit: fill;
+}
+.daohang>ul>li>a{
+    float: left;
+    text-decoration: none;
+    color: white;
+    line-height: 85px;
+}
+.daohang>ul>li{
+    margin-left: 44px;
+    list-style: none;
+    float: left;
+}
+.daohang>ul>li:nth-of-type(1){
+    margin-left: 10px;
+}

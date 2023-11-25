@@ -17,13 +17,13 @@
                 <a href="../img/index.html" target="_blank">首页</a>
             </li>
             <li>
-                <a href="#" target="_blank">动漫简介</a>
+                <a href="../img/jianjie.html" target="_blank">动漫简介</a>
             </li>
             <li>
                 <a href="#" target="_blank">动漫制作</a>
             </li>
             <li>
-                <a href="#" target="_blank">玄机科技</a>
+                <a href="../img/xuanji.html" target="_blank">玄机科技</a>
             </li>
             <li>
                 <a href="#" target="_blank">作品设定</a>
@@ -41,7 +41,7 @@
                 <a href="#" target="_blank">讨论</a>
             </li>
             <li>
-                <a href="#" target="_blank">科幻空间</a>
+                <a href="../img/world.html" target="_blank">世界</a>
             </li>
             <li>
                 <a href="../img/register.html" target="_blank" style="margin-left: 220px;">登录</a>
@@ -61,11 +61,32 @@
             <p class="table">Login</p>
             <br>
             <input type="text" placeholder="账号">
-            <input type="password" placeholder="密码">
-            
+            <input class="mima"  type="password" placeholder="密码" style="position: relative;">
+            <img class="hidden"  src="../img/photo/密码隐藏.png" alt="">
+            <img  class="visit"  src="../img/photo/密码可见.png" alt="">
             <br>
             <a href="../img/index.html" target="_blank" class="go">GO</a>
         </div>
     </div>
+    <script>
+        const hidden = document.querySelector('.box .hidden')
+        const input = document.querySelector('.box .mima')
+        const visit = document.querySelector('.box .visit')
+             hidden.addEventListener('click',function(){
+            input.type="text"
+            hidden.style.display= 'none'
+            visit.style.display = 'block'
+        })
+        visit.addEventListener('click',function(){
+            input.type = "password"
+            hidden.style.display = 'block'
+            visit.style.display = 'none'
+        })
+
+
+
+
+       
+    </script>
 </body>
 </html>

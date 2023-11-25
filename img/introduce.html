@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="../css/introduce.css">
 </head>
 <body>
-    <div class="header">
+    <div id="header">
             <img src="../img/photo/吞噬星空888888.png" alt="" id="logo">
         <div class="daohang">
             <ul>
@@ -15,13 +15,13 @@
                     <a href="../img/index.html" target="_blank">首页</a>
                 </li>
                 <li>
-                    <a href="#" target="_blank">动漫简介</a>
+                    <a href="../img/jianjie.html" target="_blank">动漫简介</a>
                 </li>
                 <li>
                     <a href="#" target="_blank">动漫制作</a>
                 </li>
                 <li>
-                    <a href="#" target="_blank">玄机科技</a>
+                    <a href="../img/xuanji.html" target="_blank">玄机科技</a>
                 </li>
                 <li>
                     <a href="#" target="_blank">作品设定</a>
@@ -39,7 +39,7 @@
                     <a href="#" target="_blank">讨论</a>
                 </li>
                 <li>
-                    <a href="#" target="_blank">科幻空间</a>
+                    <a href="../img/world.html" target="_blank">世界</a>
                 </li>
                 <li>
                     <a href="../img/register.html" target="_blank" style="margin-left: 220px;">登录</a>
@@ -66,14 +66,63 @@
             <div class="mai">
                 <img id="tnt2"  src="../img/photo/麦克风.png" alt="">
             </div>
-            
             <span>cv:赵乾景</span>
         </div>
         <div class="miaoshu">
-           <img src="../img/photo/罗峰机甲（镂空）.png" alt="">
+            <div class="player active"><img src="../img/photo/罗峰机甲（镂空）.png" alt=""></div>
+            <div class="player"><img src="../img/photo/雷神（机甲） (1).png" alt=""></div>
+            <div class="player"><img src="../img/photo/洪（镂图）.png" alt=""></div>
+            <div class="player"><img src="../img/photo/芭芭塔 （镂空）.png" alt=""></div>
+            <div class="player"><img src="../img/photo/慕雨墨（镂空） (1).png" alt=""></div>
+            <p>出身江南基地市的一名学生，被人谋害导致高考失利。最终踏入了武者之路。喜欢徐欣。</p>
         </div>
     </div>
     </div>
-    <div class="bottom"></div>
+    <div class="bottom">
+        <ul>
+            <li><a href="#" class="active">
+                <img src="../img/photo/罗峰.jpg" alt="" style="width: 100%; height: 165px;">
+            </a>
+        </li>
+            <li><a href="#">
+                <img src="../img/photo/雷神.png" alt="">
+            </a></li>
+            <li><a href="#">
+                <img src="../img/photo/洪.webp" alt="">
+            </a></li>
+            <li><a href="#">
+                <img src="../img/photo/芭芭塔.webp" alt="">
+            </a></li>
+            <li><a href="#">
+                <img src="../img/photo/甄楠666.webp" alt="">
+            </a></li>
+        </ul>
+    </div>
+    <script>
+        const uname = ['罗峰','雷神','洪','芭芭塔','徐欣']
+        const uvoic = ['赵乾景','张沛','朱亚文', '刘雯','谢莹']
+        const introduce = [
+            '出身江南基地市的一名学生，被人谋害导致高考失利。最终踏入了武者之路。喜欢徐欣。',
+            '地球第三强者，结合古瑜伽术和华夏内功成为巅峰武者，并顿悟出九重雷刀',
+            '地球第一强者，行星级便有领域，并创造出技能灭世神枪',
+            '罗峰的启蒙老师，乃是陨墨星之主呼延博创造的智能核心，经过长年累月的学习升级，而演化成“智能生命”。',
+            '京城徐家的大小姐。曾在江南基地市上学，和罗峰互有好感。'
+        ]
+        const name = document.querySelector('.introduce h1')
+        const voic = document.querySelector('.voic span')
+        const as = document.querySelectorAll('.bottom img')
+        const p = document.querySelector('.miaoshu p')
+        for(let i =0;i<as.length;i++){
+            as[i].addEventListener('click',function(){
+                name.innerHTML= uname[i]
+                 voic.innerHTML= uvoic[i]
+                 p.innerHTML = introduce[i]
+                document.querySelector('.bottom .active').classList.remove('active')
+                this.classList.add('active')
+                document.querySelector('.miaoshu .active').classList.remove('active')
+                document.querySelector(`.miaoshu .player:nth-child(${i+1})`).classList.add('active')
+            })
+        }
+    </script>
 </body>
 </html>

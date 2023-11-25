@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/world.css">
+</head>
+<body>
+    <div class="dianti">
+        <ul>
+            <li><a href="#" data-name="one" class="active">江南基地市</a></li>
+            <li><a href="#" data-name="two">南岸小区</a></li>
+            <li><a href="#" data-name="three">HR联盟</a></li>
+            <li><a href="#" data-name="four">旧世界荒野区</a></li>
+            <li><a href="#" data-name="five">沿海防卫基地</a></li>
+            <li><a href="#" data-name="six">总指挥中心</a></li>
+            <li><a href="#" data-name="seven">古文明遗迹</a></li>
+            <li><a href="#" data-name="eight">极限武馆</a></li>
+            <li><a href="#" data-name="nine">雷电武馆</a></li>
+            <li><a href="#" data-name="ten">虬龙星</a></li>
+            <li><a href="#" data-name="eleven">宇宙电梯</a></li>
+        </ul>
+    </div>
+    <div id="header">
+        <img src="../img/photo/吞噬星空888888.png" alt="" id="logo">
+    <div class="daohang">
+        <ul>
+            <li>
+                <a href="../img/index.html" target="_blank">首页</a>
+            </li>
+            <li>
+                <a href="#" target="_blank">动漫简介</a>
+            </li>
+            <li>
+                <a href="#" target="_blank">动漫制作</a>
+            </li>
+            <li>
+                <a href="../img/xuanji.html" target="_blank">玄机科技</a>
+            </li>
+            <li>
+                <a href="#" target="_blank">作品设定</a>
+            </li>
+            <li>
+                <a href="../img/introduce.html" target="_blank">角色介绍</a>
+            </li>
+           <li>
+                <a href="#" target="_blank">超然剪辑</a>
+            </li>
+            <li>
+                <a href="#" target="_blank">相关漫画</a>
+            </li>
+            <li>
+                <a href="#" target="_blank">讨论</a>
+            </li>
+            <li>
+                <a href="../img/world.html" target="_blank">世界</a>
+            </li>
+            <li>
+                <a href="../img/register.html" target="_blank" style="margin-left: 220px;">登录</a>
+                <img src="../img/photo/登录.png" alt="">
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="place">
+    <ul>
+        <li class="goone" style="background: url(../img/photo/江南基地市场景.jpeg) no-repeat; background-size: cover;">
+           <div class="player">
+            <img src="../img/photo/学生徐欣.png" alt="">
+           </div>
+        </li>
+        <li class="gotwo" style="background: url(../img/photo/南岸小区场景.jpeg) no-repeat; background-size: cover;">
+            <div class="player">
+             <img src="../img/photo/学生罗峰.png" alt="" style="width: 1000px;height: 758px;transform: translateX(-300px);" >
+            </div>
+         </li>
+         <li class="gothree" style="background: url(../img/photo/HHHRRR联盟.jpeg) no-repeat; background-size: cover;">
+            <div class="player">
+             <img src="../img/photo/维妮特.png" alt="" style="width: 482px; height: 876px;transform: translateY(-142px); ">
+            </div>
+         </li>
+         <li class="gofour" style="background: url(../img/photo/城市废墟@@@@.jpeg) no-repeat; background-size: cover;">
+            <div class="player">
+             <img src="../img/photo/朱熹.png" alt="" style="width: 627px; height: 725px; transform: translateX(-100px);">
+            </div>
+         </li>
+         <li class="gofive" style="background: url(../img/photo/防御基地.jpeg) no-repeat; background-size: cover;">
+            <div class="player">
+             <img src="../img/photo/贾谊.png" alt="" style="width: 1375px; height: 725px; transform: translateX(-415px);">
+            </div>
+         </li>
+         <li class="gosix" style="background: url(../img/photo/总指挥中心.jpeg) no-repeat; background-size: cover;">
+            <div class="player">
+             <img src="../img/photo/五英雄.png" alt="" style="width: 1153px; height: 801px; transform: translateX(-300px);">
+            </div>
+         </li>
+         <li class="goseven" style="background: url(../img/photo/古文明遗迹.jpeg) no-repeat; background-size: cover;">
+            <div class="player">
+             <img src="../img/photo/罗峰@@@@.png" alt="" style="width: 1778px; height: 725px; transform: translateX(-300px);">
+            </div>
+         </li>
+         <li class="goeight" style="background: url(../img/photo/极限武馆啊.png) no-repeat; background-size: cover;">
+            <div class="player">
+             <img src="../img/photo/洪哥6666.png" alt="" style="width: 1300px; height: 725px; transform: translateX(-300px);">
+             </div>
+         </li>
+         <li class="gonine" style="background: url(../img/photo/我也不知道.jpeg) no-repeat; background-size: cover;">
+            <div class="player">
+             <img src="../img/photo/雷神.png" alt="" style="width: 1250px; height: 746px; transform: translateX(-379px);">
+            </div>
+         </li>
+         <li class="goten" style="background: url(../img/photo/虬龙星.jpg) no-repeat; background-size: cover;">
+            <div class="player">
+             <img src="../img/photo/徐欣壁纸.png" alt="">
+            </div>
+         </li>
+         <li class="goeleven" style="background: url(../img/photo/星际航道.jpg) no-repeat; background-size: cover;">
+            <div class="player">
+            </div>
+         </li>
+    </ul>
+    <script>
+        const dianti = document.querySelector(".dianti");
+        const img = document.querySelector(".place .player");
+     /*    window.addEventListener('scroll',function(){
+            const n = document.documentElement.scrollTop
+            if(n>=2000){
+                dianti.style.display = 'block'
+            }
+            else{
+                dianti.style.display = 'none'
+            }
+        }); */
+        (function(){
+            const list = document.querySelector(".dianti ul")
+            list.addEventListener('click',function(e){
+                e.preventDefault()
+            if(e.target.tagName == 'A'&& e.target.dataset.name){
+                const old = document.querySelector('.active')
+                if(old) old.classList.remove('active')
+                    e.target.classList.add('active')
+                const top = document.querySelector(`.go${e.target.dataset.name}`).offsetTop
+                document.documentElement.scrollTop = top
+            }
+        })
+        window.addEventListener('scroll',function(){
+            const old = document.querySelector('.active')
+                if(old) old.classList.remove('active')
+                    e.target.classList.add('active')
+
+                    const first = document.querySelector('.goone')
+                    const twoth = document.querySelector('.gotwo')
+                    const threeth = document.querySelector('.gothree')
+                    const fourth = document.querySelector('.gofour')
+                    const five = document.querySelector('.gofive')
+                    const six = document.querySelector('.gosix')
+                    const seven = document.querySelector('.goseven')
+                    const eight = document.querySelector('.goeight')
+                    const nine = document.querySelector('.gonine')
+                    const ten = document.querySelector('.goten')
+                    const eleven = document.querySelector('.goeleven')
+                    const n = document.documentElement.scrollTop
+                    if(n>=first.offsetTop && n<twoth.offsetTop){
+                        document.querySelector('[data-name= one]').classList.add('active')
+                    }else if( n >= twoth.offsetTop && n<threeth.offsetTop){
+                        document.querySelector('[date-name=two]').classList.add('active')
+                    }else if( n >= three.offsetTop && n<four.offsetTop){
+                        document.querySelector('[date-name=three]').classList.add('active')
+                    }else if( n >= four.offsetTop && n<five.offsetTop){
+                        document.querySelector('[date-name=four]').classList.add('active')
+                    }else if( n >= five.offsetTop && n<six.offsetTop){
+                        document.querySelector('[date-name=five]').classList.add('active')
+                    }else if( n >= six.offsetTop && n<seven.offsetTop){
+                        document.querySelector('[date-name=six]').classList.add('active')
+                    }else if( n >= seven.offsetTop && n<eight.offsetTop){
+                        document.querySelector('[date-name=seven]').classList.add('active')
+                    }else if( n >= eight.offsetTop && n<nine.offsetTop){
+                        document.querySelector('[date-name=eight]').classList.add('active')
+                    }else if( n >= nine.offsetTop && n<ten.offsetTop){
+                        document.querySelector('[date-name=nine]').classList.add('active')
+                    }else if( n >= ten.offsetTop && n<eleven.offsetTop){
+                        document.querySelector('[date-name=ten]').classList.add('active')
+                    }else if( n >= eleven.offsetTop){
+                        document.querySelector('[date-name=eleven]').classList.add('active')
+                    }
+                })
+        })();
+        
+    </script>
+</div>
+</body>
+</html>

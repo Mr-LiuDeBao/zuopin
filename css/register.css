@@ -66,7 +66,7 @@ body{
 }
 .login{
   width: 550px;
-  height: 400px;
+  height: 460px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -96,17 +96,22 @@ body{
 }
 
 .box input{
-  width: 400px;
+  width: 300px;
   height: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 16px;
   outline: none;
   border: 0;
   padding: 10px;
   background-color: transparent;
   border-bottom: 3px solid rgb(150, 150, 240);
   font: 900 16px '';
+  background-color: white;
 }
-
+.box>span{
+  color: red;
+  position: absolute;
+  left: 115px;
+}
 .go{
   text-align: center;
   display: block;
@@ -114,18 +119,19 @@ body{
   padding: 12px;
   font: 900 20px '';
   border-radius: 10px;
-  margin-top: 20px;
+  margin-top: -4px;
   color: #fff;
   letter-spacing: 3px;
   background-image: linear-gradient(to left,
   #fd79a8,#a29bf6);
+  margin-left: 8px;
 }
  .hidden{
   position: absolute;
   width: 26px;
   height: 21px;
-  top: 203px;
-  right: 74px;
+  top: 225px;
+  right: 128px;
   display: block;
   
 }
@@ -133,7 +139,7 @@ body{
   position: absolute;
   width: 56px;
   height: 70px;
-  top: 178px;
-  right: 60px;
+  top: 201px;
+  right: 112px;
   display: none;
 }

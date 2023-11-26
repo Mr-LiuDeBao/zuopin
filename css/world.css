@@ -60,7 +60,10 @@
   float: right;
   transform: translate(-300px);
   margin-top: 225px;
+  opacity: 0; /* 初始时设置图片透明度为0 */
+  transition: opacity 1s ease;
 }
+
 .place>ul>li>.player>img{
   width: 100%;
   height: 100%;
@@ -69,17 +72,18 @@
 .dianti{
   width: 58px;
   height: 550px;
-  background-color: red;
   position: fixed;
   top: 187px;
   right: 50px;
   float: left;
   z-index: 10;
+  border-radius: 25px;
 }
 .dianti>ul{
   width: 100%;
   height: 100%;
-  background-color: pink;
+  background-color: aqua;
+  border-radius: 20px;
 }
 .dianti>ul>li{
   list-style: none;
@@ -93,6 +97,18 @@
 }
 
 .active{
-  color: aqua;
-  display: block;
+  color: white;
+  display: block!;
+  
 }
+.display{
+  opacity: 1; /* 当添加show类时，将透明度设置为1，显示图片 */
+  animation: fade-in 2s forwards;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }}

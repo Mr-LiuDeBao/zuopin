@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en"></html>
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -50,24 +49,33 @@
         </ul>
     </div>
 </div>
-
-
-
-
     <img src="../img/photo/米哈游1.png" alt="" id="player11">
     <img src="../img/photo/米哈游3（镂图）.png" alt="" id="player22">
-    <div class="login">
+    <form action="#" class="login" method="post" novalidate>
         <div class="box">
-            <p class="table">Login</p>
+            <p class="table">登录</p>
             <br>
-            <input type="text" placeholder="账号">
-            <input class="mima"  type="password" placeholder="密码" style="position: relative;">
+                <div style="position: absolute; right: 440px; top: 109px;">用户名：</div>
+                <input name="username" type="text" placeholder="用户名" required>
+                <span style="top: 139px;"></span>
+                 <div style="position: absolute; right: 440px; top: 168px;">密码：</div>
+            <div style="position: absolute; right: 440px; top: 227px;">密码：</div>
+           
+            <div style="position: absolute; right: 440px; top: 287px;">邮箱：</div>
+            <input class="mima"  type="password" placeholder="密码" style="position: relative;" required name="pass">
+            <span style="top: 198px;"></span>
+            <input type="password" placeholder="请确认密码" required name="qpass">
+            <span style="top: 258px;"></span>
+            <input type="email" placeholder="请输入邮箱" pattern="[^@]*@[^@]*[\.com$]" required name="email">
+            <span style="top: 318px;"></span>
             <img class="hidden"  src="../img/photo/密码隐藏.png" alt="">
             <img  class="visit"  src="../img/photo/密码可见.png" alt="">
             <br>
-            <a href="../img/index.html" target="_blank" class="go">GO</a>
+            <!-- <a href="../img/index.html" target="_blank" class="go">GO</a> -->
+            <input type="submit" value="登录" class="go">
+            <a href="#" style="margin: 0 auto;">还没有账号？前往注册</a>
         </div>
-    </div>
+    </form>
     <script>
         const hidden = document.querySelector('.box .hidden')
         const input = document.querySelector('.box .mima')
@@ -82,11 +90,61 @@
             hidden.style.display = 'block'
             visit.style.display = 'none'
         })
-
-
-
-
-       
+        const username = document.querySelector('[name=username]')
+        username.addEventListener('change',verifyname)
+        function verifyname(){
+                const span = username.nextElementSibling
+                const reg = /^[a-zA-Z0-9-_]{6,10}$/
+                if(!reg.test(username.value)){
+                    span.innerHTML = '输入不合法，请输入6-10位'
+                    return false
+                }
+                span.innerHTML = ''
+                return true
+        }
+        const pass = document.querySelector('[name=pass]')
+        pass.addEventListener('change',verifypass)
+        function verifypass(){
+                const span = pass.nextElementSibling
+                const reg = /^[a-zA-Z0-9-_]{6,10}$/
+                if(!reg.test(pass.value)){
+                    span.innerHTML = '输入不合法，请输入至少6位密码'
+                    return false
+                }
+                span.innerHTML = ''
+                return true
+        }
+        const qpass = document.querySelector('[name=qpass]')
+        qpass.addEventListener('change',verifyqpass)
+        function verifyqpass(){
+                const span = qpass.nextElementSibling
+               
+                if(qpass.value!== pass.value){
+                    span.innerHTML = '两次密码输入不一致'
+                    return false
+                }
+                span.innerHTML = ''
+                return true
+        }
+        const email = document.querySelector('[name=email]')
+        email.addEventListener('change',verifyemail)
+        function verifyemail(){
+                const span = email.nextElementSibling
+                const reg = /^[a-zA-Z0-9-_]{6,10}$/
+                if(!reg.test(email.value)){
+                    span.innerHTML = '输入不合法，请输入至少6位密码'
+                    return false
+                }
+                span.innerHTML = ''
+                return true
+        }
+        const form = document.querySelector('form')
+        form.addEventListener('submit',function(e){
+            if(!verifyname()) e.preventDefault()
+            if(!verifypass()) e.preventDefault()
+            if(!verifyqpass()) e.preventDefault()
+            if(!verifyemail()) e.preventDefault()
+        })
     </script>
 </body>
 </html>

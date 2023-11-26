@@ -66,7 +66,7 @@
 <div class="place">
     <ul>
         <li class="goone" style="background: url(../img/photo/江南基地市场景.jpeg) no-repeat; background-size: cover;">
-           <div class="player">
+           <div class="player display">
             <img src="../img/photo/学生徐欣.png" alt="">
            </div>
         </li>
@@ -112,11 +112,12 @@
          </li>
          <li class="goten" style="background: url(../img/photo/虬龙星.jpg) no-repeat; background-size: cover;">
             <div class="player">
-             <img src="../img/photo/徐欣壁纸.png" alt="">
+             <img src="../img/photo/恶魔芭芭塔.png" alt="" style="width: 1154px; height: 801px; transform: translateX(-300px);">
             </div>
          </li>
          <li class="goeleven" style="background: url(../img/photo/星际航道.jpg) no-repeat; background-size: cover;">
             <div class="player">
+                <img src="../img/photo/阿图卡.png" alt="" style="width: 1400px; height: 725px; transform: translateX(-1332px);">
             </div>
          </li>
     </ul>
@@ -146,47 +147,58 @@
         })
         window.addEventListener('scroll',function(){
             const old = document.querySelector('.active')
+            const elder = document.querySelector('.display')
                 if(old) old.classList.remove('active')
-                    e.target.classList.add('active')
-
+                if(elder) elder.classList.remove('display')
+                    
                     const first = document.querySelector('.goone')
                     const twoth = document.querySelector('.gotwo')
                     const threeth = document.querySelector('.gothree')
                     const fourth = document.querySelector('.gofour')
-                    const five = document.querySelector('.gofive')
-                    const six = document.querySelector('.gosix')
-                    const seven = document.querySelector('.goseven')
-                    const eight = document.querySelector('.goeight')
-                    const nine = document.querySelector('.gonine')
-                    const ten = document.querySelector('.goten')
-                    const eleven = document.querySelector('.goeleven')
+                    const fiveth = document.querySelector('.gofive')
+                    const sixth = document.querySelector('.gosix')
+                    const seventh = document.querySelector('.goseven')
+                    const eightth = document.querySelector('.goeight')
+                    const nineth = document.querySelector('.gonine')
+                    const tenth = document.querySelector('.goten')
+                    const eleventh = document.querySelector('.goeleven')
                     const n = document.documentElement.scrollTop
                     if(n>=first.offsetTop && n<twoth.offsetTop){
                         document.querySelector('[data-name= one]').classList.add('active')
+                        document.querySelector('.goone  .player').classList.add('display')
                     }else if( n >= twoth.offsetTop && n<threeth.offsetTop){
-                        document.querySelector('[date-name=two]').classList.add('active')
-                    }else if( n >= three.offsetTop && n<four.offsetTop){
-                        document.querySelector('[date-name=three]').classList.add('active')
-                    }else if( n >= four.offsetTop && n<five.offsetTop){
-                        document.querySelector('[date-name=four]').classList.add('active')
-                    }else if( n >= five.offsetTop && n<six.offsetTop){
-                        document.querySelector('[date-name=five]').classList.add('active')
-                    }else if( n >= six.offsetTop && n<seven.offsetTop){
-                        document.querySelector('[date-name=six]').classList.add('active')
-                    }else if( n >= seven.offsetTop && n<eight.offsetTop){
-                        document.querySelector('[date-name=seven]').classList.add('active')
-                    }else if( n >= eight.offsetTop && n<nine.offsetTop){
-                        document.querySelector('[date-name=eight]').classList.add('active')
-                    }else if( n >= nine.offsetTop && n<ten.offsetTop){
-                        document.querySelector('[date-name=nine]').classList.add('active')
-                    }else if( n >= ten.offsetTop && n<eleven.offsetTop){
-                        document.querySelector('[date-name=ten]').classList.add('active')
-                    }else if( n >= eleven.offsetTop){
-                        document.querySelector('[date-name=eleven]').classList.add('active')
+                        document.querySelector('[data-name= two]').classList.add('active')
+                        document.querySelector('.gotwo .player').classList.add('display')
+                    }else if( n >= threeth.offsetTop && n<fourth.offsetTop){
+                        document.querySelector('[data-name= three]').classList.add('active')
+                        document.querySelector('.gothree .player').classList.add('display')
+                    }else if( n >= fourth.offsetTop && n<fiveth.offsetTop){
+                        document.querySelector('[data-name= four]').classList.add('active')
+                        document.querySelector('.gofour .player').classList.add('display')
+                    }else if( n >= fiveth.offsetTop && n<sixth.offsetTop){
+                        document.querySelector('[data-name=five]').classList.add('active')
+                        document.querySelector('.gofive .player').classList.add('display')
+                    }else if( n >= sixth.offsetTop && n<seventh.offsetTop){
+                        document.querySelector('[data-name=six]').classList.add('active')
+                        document.querySelector('.gosix .player').classList.add('display')
+                    }else if( n >= seventh.offsetTop && n<eightth.offsetTop){
+                        document.querySelector('[data-name=seven]').classList.add('active')
+                        document.querySelector('.goseven .player').classList.add('display')
+                    }else if( n >= eightth.offsetTop && n<nineth.offsetTop){
+                        document.querySelector('[data-name=eight]').classList.add('active')
+                        document.querySelector('.goeight .player').classList.add('display')
+                    }else if( n >= nineth.offsetTop && n<tenth.offsetTop){
+                        document.querySelector('[data-name=nine]').classList.add('active')
+                        document.querySelector('.gonine .player').classList.add('display')
+                    }else if( n >= tenth.offsetTop && n<eleventh.offsetTop){
+                        document.querySelector('[data-name=ten]').classList.add('active')
+                        document.querySelector('.goten .player').classList.add('display')
+                    }else if( n >= eleventh.offsetTop){
+                        document.querySelector('[data-name=eleven]').classList.add('active')
+                        document.querySelector('.goeleven .player').classList.add('display')
                     }
                 })
-        })();
-        
+            })();
     </script>
 </div>
 </body>

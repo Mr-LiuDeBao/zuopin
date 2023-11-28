@@ -78,10 +78,13 @@
         </div>
     </div>
     </div>
-    <div class="bottom">
-        <ul>
-            <li><a href="#" class="active">
-                <img src="../img/photo/罗峰.jpg" alt="" style="width: 100%; height: 165px;">
+    <div class="bottom" style="position: relative;">
+        <ul style="position: absolute;" id="box">
+            <div class="leftkey" style="position: absolute; left: 50px; top: 125px; background: url(../img/photo/左切换键.webp); width: 45px; height: 65px;">
+                
+            </div>
+            <li style="margin-left: 115px;"><a href="#" class="active" >
+                <img src="../img/photo/罗峰.jpg" alt="" style="width: 100%; height: 165px;" >
             </a>
         </li>
             <li><a href="#">
@@ -95,7 +98,11 @@
             </a></li>
             <li><a href="#">
                 <img src="../img/photo/甄楠666.webp" alt="">
-            </a></li>
+            </a>
+        </li>
+        <div class="rightkey"style="position: absolute; top: 125px; right: 50px; background: url(../img/photo/右切换键.webp); width: 45px; height: 65px;">
+            
+        </div>
         </ul>
     </div>
     <script>
@@ -123,6 +130,21 @@
                 document.querySelector(`.miaoshu .player:nth-child(${i+1})`).classList.add('active')
             })
         }
+        const left = document.querySelector('.bottom .left')
+        const right = document.querySelector('.bottom .right')
+      
+        const list = document.querySelector('#box')
+        const box = document.querySelector('.bottom')
+        list.innerHTML += list.innerHTML
+        let lefter = 0
+        let timer
+        timer = setInterval(function(){
+            lefter -= 2
+            if(lefter === -(6*80+6*10)){
+                lefter = 0
+            }
+            list.style.left = left + 'px'
+        })
     </script>
 </body>
 </html>

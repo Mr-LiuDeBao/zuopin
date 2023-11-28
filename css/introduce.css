@@ -160,11 +160,16 @@ body::before {
     z-index: 5;
     position: relative;
 }
+#box{
+    overflow: hidden;
+    left: 0px;
+    width: 100%;
+}
 .bottom>ul>li{
     height: 165px;
     width: 175px;
     float: left;
-    margin: 80px 80px;
+    padding: 80px 59px;
     list-style: none;
 }
 .bottom>ul>li>a>img{

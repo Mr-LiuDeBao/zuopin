@@ -65,14 +65,19 @@
 </div>
 <div class="place">
     <ul>
+        <li id="map" style="background: url(../img/photo/城市地图.jpeg) no-repeat; background-size: cover; position: relative;">
+            <div id="jingzi"></div>
+           <div class="big"></div>
+         </li>
         <li class="goone" style="background: url(../img/photo/江南基地市场景.jpeg) no-repeat; background-size: cover;">
            <div class="player display">
             <img src="../img/photo/学生徐欣.png" alt="">
            </div>
         </li>
         <li class="gotwo" style="background: url(../img/photo/南岸小区场景.jpeg) no-repeat; background-size: cover;">
+            <div class="big"></div>
             <div class="player">
-             <img src="../img/photo/学生罗峰.png" alt="" style="width: 1000px;height: 758px;transform: translateX(-300px);" >
+             <img src="../img/photo/学生罗峰.png" alt="" style="width: 1000px;height: 758px;transform: translateX(-300px);">
             </div>
          </li>
          <li class="gothree" style="background: url(../img/photo/HHHRRR联盟.jpeg) no-repeat; background-size: cover;">
@@ -199,6 +204,44 @@
                     }
                 })
             })();
+
+            const jingzi = document.querySelector('#jingzi')
+            const map = document.querySelector('#map')
+            const big = document.querySelector('#map .big')
+            map.addEventListener('mouseenter',show)
+            map.addEventListener('mouseleave',hide)
+            let timeid = 0
+            function show(){
+                // clearTimeout(timeid)
+                big.style.display = 'block'
+            }
+            function hide(){
+               timeid = setTimeout(function(){
+                     big.style.display = 'none'
+                },200)
+            }
+           /*  big.addEventListener('mouseenter',show)
+            big.addEventListener('mouseleave',hide) */
+                map.addEventListener('mousemove',function(e){
+                let x = e.pageX - map.getBoundingClientRect().left
+                let y = e.pageY - map.getBoundingClientRect().top - document.documentElement.scrollTop
+                 if(x>=0 && x<1903 && y>=0 && y<=950){
+                let mx = 0,my = 0
+                if(x<100) mx = 0
+                    if(x>=100 && x<= 1803) mx = x - 100
+                    if(x>1803) mx = 1703
+                    jingzi.style.left = mx + 'px'
+
+                    if(y<100) my = 0
+                    if(y>=100 && y<= 850) my = y - 100
+                    if(y>850) my = 750
+                    jingzi.style.left = mx + 'px'
+                    jingzi.style.top = my + 'px'
+                    big.style.backgroundPositionX = -2*mx + 'px'
+                    big.style.backgroundPositionY = -2*my + 'px'
+            }
+            })
+            
     </script>
 </div>
 </body>

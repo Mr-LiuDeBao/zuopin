@@ -4,6 +4,10 @@
     text-decoration: none;
     cursor: url(../img/photo/鼠标.png),default;
   }
+  body{
+    width: 100%;
+    height: 100%;
+  }
   html{
     scroll-behavior: smooth;
   }
@@ -112,3 +116,24 @@
   100% {
     opacity: 1;
   }}
+  #map>.big{
+    width: 400px; height: 400px;
+    position: absolute;
+    top: 100px;
+    right: 310px;
+    background-color: #fff;
+    display: none;
+    background-size: 1900px 3806px;
+    background-image: url(../img/photo/城市地图.jpeg);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+  }
+  #jingzi{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    background-color: blue;
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+  }

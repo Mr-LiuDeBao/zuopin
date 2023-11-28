@@ -49,9 +49,9 @@
         </ul>
     </div>
 </div>
-    <img src="../img/photo/米哈游1.png" alt="" id="player11">
-    <img src="../img/photo/米哈游3（镂图）.png" alt="" id="player22">
-    <form action="#" class="login" method="post" novalidate>
+    <img src="../img/photo/米哈游1.png" alt="" id="player11" style="display: none;">
+    <img src="../img/photo/米哈游3（镂图）.png" alt="" id="player22" style="display: none;">
+    <div class="login" style="display: none;">
         <div class="box">
             <p class="table">登录</p>
             <br>
@@ -66,17 +66,48 @@
             <span style="top: 198px;"></span>
             <input type="password" placeholder="请确认密码" required name="qpass">
             <span style="top: 258px;"></span>
-            <input type="email" placeholder="请输入邮箱" pattern="[^@]*@[^@]*[\.com$]" required name="email">
+            <input type="email" placeholder="请输入邮箱" pattern="[^@]*@[^@]*[\.com$]" required name="email" id="email2">
             <span style="top: 318px;"></span>
             <img class="hidden"  src="../img/photo/密码隐藏.png" alt="">
             <img  class="visit"  src="../img/photo/密码可见.png" alt="">
             <br>
             <!-- <a href="../img/index.html" target="_blank" class="go">GO</a> -->
-            <input type="submit" value="登录" class="go">
-            <a href="#" style="margin: 0 auto;">还没有账号？前往注册</a>
+            <input type="submit" value="登录" class="go" id="denglu">
+            <a href="#" style="margin: 0 auto;" class="zhuce" id="gozhuce">还没有账号？前往注册</a>
         </div>
-    </form>
+    </div>
+    <div class="register">
+        <div class="box">
+            <p class="table">注册</p>
+            <br>
+                <div style="position: absolute; right: 440px; top: 92px;">用户名：</div>
+                <input name="newname" type="text" placeholder="用户名" required>
+                <span style="top: 122px;"></span>
+                 <div style="position: absolute; right: 440px; top: 151px;">手机号码：</div>
+            <div style="position: absolute; right: 440px; top: 211px;">短信验证码：</div>
+           
+            <div style="position: absolute; right: 440px; top: 273px;">密码：</div>
+            <input class="call"  type="text" placeholder="请输入手机号码" style="position: relative;" required name="call">
+            <span style="top: 182px;"></span>
+            <input type="text" placeholder="请输入短信验证码" required name="qcall">
+            <span style="top: 242px;"></span>
+            <a href="#" id="code" style="position: absolute; right: 120px; top: 210px;">发送验证码</a>
+            <input type="password" placeholder="请输入密码" pattern="[^@]*@[^@]*[\.com$]" required name="password" class="mimi">
+            <span style="top: 302px;"></span>
+            <input type="email" placeholder="请输入邮箱" name="email" id="email1">
+            <span style="top: 362px;"></span>
+            
+            <div style="position: absolute; bottom: 137px; left: 62px;">邮箱：</div>
+            <img class="hide"  src="../img/photo/密码隐藏.png" alt="">
+            <img  class="see"  src="../img/photo/密码可见.png" alt="">
+            <br>
+            <!-- <a href="../img/index.html" target="_blank" class="go">GO</a> -->
+            <input type="submit" value="注册" class="go" id="zhuce">
+            <a href="#" style="margin: 0 auto;" class="denglu" id="gologin">已有账号？前往登录</a>
+        </div>
+    </div>
     <script>
+        //登录验证
         const hidden = document.querySelector('.box .hidden')
         const input = document.querySelector('.box .mima')
         const visit = document.querySelector('.box .visit')
@@ -85,7 +116,7 @@
             hidden.style.display= 'none'
             visit.style.display = 'block'
         })
-        visit.addEventListener('click',function(){
+        visit.addEventListener('click',function(){            
             input.type = "password"
             hidden.style.display = 'block'
             visit.style.display = 'none'
@@ -132,19 +163,263 @@
                 const span = email.nextElementSibling
                 const reg = /^[a-zA-Z0-9-_]{6,10}$/
                 if(!reg.test(email.value)){
+                    span.innerHTML = '请输入至少6位邮箱号码'
+                    return false
+                }
+                span.innerHTML = ''
+                return true
+        }
+        const login = document.querySelector('.login')
+        login.addEventListener('submit',function(e){
+            if(!verifyname()) e.preventDefault()
+            if(!verifypass()) e.preventDefault()
+            if(!verifyqpass()) e.preventDefault()
+            if(!verifyemail()) e.preventDefault()
+        })
+
+
+
+
+        //注册验证
+        const hide = document.querySelector('.box .hide')
+        const mimi = document.querySelector('.box .mimi')
+        const see = document.querySelector('.box .see')
+             hide.addEventListener('click',function(){
+            mimi.type="text"
+            hide.style.display= 'none'
+            see.style.display = 'block'
+        })
+        see.addEventListener('click',function(){            
+            mimi.type = "password"
+            hide.style.display = 'block'
+            see.style.display = 'none'
+        })
+
+
+        const newname = document.querySelector('[name=newname]')
+        newname.addEventListener('change',verifynewname)
+        function verifynewname(){
+                const span = newname.nextElementSibling
+                const reg = /^[a-zA-Z0-9-_]{6,10}$/
+                if(!reg.test(newname.value)){
+                    span.innerHTML = '输入不合法，请输入6-10位名称'
+                    return false
+                }
+                span.innerHTML = ''
+                return true
+        }
+        const call = document.querySelector('[name=call]')
+        call.addEventListener('change',verifycall)
+        function verifycall(){
+                const span = call.nextElementSibling
+                const reg = /^[a-zA-Z0-9-_]{10,11}$/
+                if(!reg.test(call.value)){
+                    span.innerHTML = '输入不合法，请输入10-11位号码'
+                    return false
+                }
+                span.innerHTML = ''
+                return true
+        }
+        const qcall = document.querySelector('[name=qcall]')
+        qcall.addEventListener('change',verifyqcall)
+        function verifyqcall(){
+                const span = qcall.nextElementSibling
+                const reg = /^[a-zA-Z0-9-_]{6,10}$/
+                if(!reg.test(qcall.value)){
+                    span.innerHTML = '请输入至少4位验证码'
+                    return false
+                }
+                span.innerHTML = ''
+                return true
+        }
+        const password = document.querySelector('[name=password]')
+        password.addEventListener('change',verifypassword)
+        function verifypassword(){
+                const span = password.nextElementSibling
+                const reg = /^[a-zA-Z0-9-_]{6,10}$/
+                if(!reg.test(password.value)){
                     span.innerHTML = '输入不合法，请输入至少6位密码'
                     return false
                 }
                 span.innerHTML = ''
                 return true
         }
-        const form = document.querySelector('form')
-        form.addEventListener('submit',function(e){
-            if(!verifyname()) e.preventDefault()
-            if(!verifypass()) e.preventDefault()
-            if(!verifyqpass()) e.preventDefault()
-            if(!verifyemail()) e.preventDefault()
+        
+        email.addEventListener('change',verifyemail)
+
+        function verifyqpassword(){
+            const span = qpassword.nextElementSibling
+                if(qpassword.value!== password.value){
+                    span.innerHTML = '两次密码输入不一致'
+                    return false
+                }
+                span.innerHTML = ''
+                return true
+        }
+        const register = document.querySelector('.register')
+        register.addEventListener('submit',function(e){
+            if(!verifynewname()) e.preventDefault()
+            if(!verifypassword()) e.preventDefault()
+            if(!verifyqpassword()) e.preventDefault()
+            if(!verifycall()) e.preventDefault()
+            if(!verifyqcall()) e.preventDefault()
+        }) 
+
+    const code = document.querySelector('#code')
+        
+        code.addEventListener('click',function(e){
+            e.preventDefault()
+            let i = 5
+            code.innerHTML = `0${i}秒后重新获取`
+            let timeid =  setInterval(function(){
+                i--
+                code.innerHTML = `0${i}秒后重新获取`
+                if(i===0){
+                    clearInterval(timeid)
+                    code.innerHTML = '重新获取'
+                }
+            },1000)
         })
+        /* const zhuce = document.querySelector('[name=zhuce]')
+        zhuce.addEventListener('click',function(){
+            var myarr = [];
+            if(localStorage.my !=null){
+                myarr = load();
+            }
+            myarr.push(newname.value);
+            save(myarr);
+            newname.value = '';
+            newname.focus();
+        })
+
+
+        console.log(localStorage.my)
+        var save = function(arr){
+            localStorage.my = JSON.stringify(arr);
+        }
+        var load = function(){
+            var arr = JSON.parse(localStorage.my)
+            return arr;
+        } */
+
+       
+        /* login1.addEventListener("click",function(){
+            login2.style.display='block'
+        })
+        register.addEventListener("click",function(){
+            login2.style.display='none'
+        }) */
+
+
+            //注册
+            const zhuce = document.querySelector('#zhuce')
+            zhuce.addEventListener('click',function(event){
+                var myHeaders = new Headers();
+            myHeaders.append("Content-Type", "application/json")
+            event.preventDefault();
+            let inp1 = newname.value
+            let inp2 = password.value
+            let email = document.getElementById('email1').value
+            console.log(inp1,inp2,email)
+            if(inp2.length<6){
+                alert("密码长度少于6位")
+                return
+            }
+            localStorage.setItem("user",inp1)
+            localStorage.setItem("email",email)
+            localStorage.setItem("password",inp2)
+            var raw = JSON.stringify({
+                "username": inp1,
+                "email":email,
+                "password": inp2,
+                    });
+                    console.log(raw)
+            var requestOptions = {
+            method: 'POST',
+            body: raw,
+            headers: myHeaders,
+            };
+            console.log(requestOptions)
+            fetch("http://101.35.238.12:1337/api/auth/local/register", requestOptions)
+                .then(function(response) {
+                if(response.status === 200){
+                    alert("注册成功")
+                     register.style.display = 'none'
+                login.style.display = 'flex'
+                    return response.text();
+                   
+                }else if(response.status === 400){
+                    // console("注册失败")
+                    alert("注册失败")
+                    return response.text();
+                }else{
+                    throw new Error('Unexpect status code:'+response.status);
+                    alert("注册失败")
+                }
+                })
+                .then(function(result) {
+                  console.log(result);
+                  object1 = JSON.parse(result)
+                  console.log(object1.jwt)
+                })
+                .catch(function(error) {
+                   console.log('error', error);
+                });
+                
+        })
+const gologin = document.querySelector('#gologin')
+        gologin.addEventListener('click',function(){
+            login.style.display ='flex'
+            register.style.display = 'none' })
+
+        // 登录
+        const denglu = document.querySelector('#denglu')
+        denglu.addEventListener("click",function(event){
+           
+            var myHeaders1 = new Headers();
+            myHeaders1.append("User-Agent", "Apifox/1.0.0 (https://apifox.com)");
+            myHeaders1.append("Content-Type", "application/json");
+            event.preventDefault();
+            let inp3 = username.value
+            let inp4 = pass.value
+        var raw = JSON.stringify({
+            "identifier": inp3,
+            "password": inp4,
+            });
+
+            var requestOptions = {
+                method: 'POST',
+            headers: myHeaders1,
+            body: raw,
+            redirect: 'follow'
+            };
+
+            fetch("http://101.35.238.12:1337/api/auth/local", requestOptions)
+                // .then(response => response.text())
+                .then(function(response) {
+                if(response.status === 200){
+                    alert("登录成功")
+                   location.href = '../img/index.html'
+                    return response.text();
+                    
+                }else if(response.status === 400){
+                    // console("注册失败")
+                    alert("账号或密码错误")
+                    return response.text();
+                }else{
+                    throw new Error('Unexpect status code:'+response.status);
+                    alert("账号或密码错误")
+                }
+                })
+                .then(result => console.log(result))
+                .catch(error => console.log('error', error));
+        })
+            const gozhuce = document.querySelector('#gozhuce')
+            gozhuce.addEventListener('click',function(){
+                register.style.display = 'flex'
+                login.style.display = 'none'
+            })
+
     </script>
 </body>
 </html>

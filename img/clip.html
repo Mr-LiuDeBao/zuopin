@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/clip.css">
+</head>
+<body>
+    <div id="header">
+        <img src="../img/photo/吞噬星空888888.png" alt="" id="logo">
+    <div class="daohang">
+        <ul>
+            <li>
+                <a href="../img/index.html">首页</a>
+            </li>
+            <li>
+                <a href="../img/jianjie.html">动漫简介</a>
+            </li>
+            <li>
+                <a href="../img/make.html">动漫制作</a>
+            </li>
+            <li>
+                <a href="../img/xuanji.html">玄机科技</a>
+            </li>
+            <li>
+                <a href="../img/set.html">作品设定</a>
+            </li>
+            <li>
+                <a href="../img/introduce.html">角色介绍</a>
+            </li>
+           <li>
+                <a href="../img/clip.html">超然剪辑</a>
+            </li>
+            <li>
+                <a href="../img/comic.html">相关漫画</a>
+            </li>
+            <li>
+                <a href="../img/news.html">新闻咨询</a>
+            </li>
+            <li>
+                <a href="../img/world.html">世界</a>
+            </li>
+            <li>
+                <a href="../img/register.html" style="margin-left: 220px;">登录</a>
+                <img src="../img/photo/登录.png" alt="">
+            </li>
+        </ul>
+    </div>
+</div>
+<section style="position: relative;">
+    <video class="backvideo" src="../img/吞噬星空游戏视频.mp4" autoplay loop muted></video>
+        <img class="bofang" src="../img/photo/播放按键蓝.png" alt="">
+        <img class="logo" src="../img/photo/游戏logo.png" alt="">
+    </div>
+</section>
+<section>
+    <div class="left"></div>
+    <div class="right"></div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bottom" style="display: none;">
+    <form id="commentForm">
+        <input type="text" id="nameInput" placeholder="姓名" required>
+        <br>
+        <textarea id="commentInput" placeholder="评论内容" required></textarea>
+        <br>
+        <button type="submit">发表评论</button>
+    
+         <h1>评论区</h1>
+    
+      <div id="comments">
+    
+      </div>
+      </form>
+</div>
+<script>
+     // 评论提交事件处理函数
+     function submitComment(event) {
+      event.preventDefault(); // 阻止表单默认提交行为
+
+      // 获取输入值
+      var nameInput = document.getElementById('nameInput');
+      var commentInput = document.getElementById('commentInput');
+
+      var name = nameInput.value;
+      var comment = commentInput.value;
+
+      // 创建评论元素
+      var commentElement = document.createElement('div');
+      commentElement.className = 'comment';
+      commentElement.innerHTML = '<span>' + name + '</span>: ' + comment;
+
+      // 将评论添加到评论区
+      var commentsContainer = document.getElementById('comments');
+      commentsContainer.appendChild(commentElement);
+
+      // 清空输入框
+      nameInput.value = '';
+      commentInput.value = '';
+    }
+
+    // 监听表单提交事件
+    var commentForm = document.getElementById('commentForm');
+    commentForm.addEventListener('submit', submitComment);
+     
+    
+
+
+
+   /*  //获取评论
+    tx.addEventListener('keyup',function(e){
+        if(e.key === 'Enter'){
+            if(tx.value.trim()!==' '){
+
+ var myHeaders = new Headers();
+
+var requestOptions = {
+   method: 'GET',
+   headers: myHeaders,
+   redirect: 'follow'
+};
+
+fetch("http://101.35.238.12:1337/api/comments", requestOptions)
+   .then(response => response.text())
+   .then(result => console.log(result))
+   .catch(error => console.log('error', error));
+
+                
+                 var myHeaders = new Headers();
+    myHeaders.append("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwiaWF0IjoxNzAxNzAyMTgyLCJleHAiOjE3MDQyOTQxODJ9.9lkazkz_b_nRFpnejUc9nlbRwItk_rrJOkm7peYZQQk");
+    myHeaders.append("User-Agent", "Apifox/1.0.0 (https://apifox.com)");
+    myHeaders.append("Content-Type", "application/json");
+    
+    let input = tx.value
+    let username = name.value
+    
+    // let newtimer = newtime.value
+    if(input.length>100){
+        alert("输入不得大于100")
+    }
+    else if(input.length===0){
+        alert("输入不能为空")
+    }
+    localStorage.setItem("user",username)
+    localStorage.setItem("content",input)
+    var raw = JSON.stringify({
+   "data": {
+      "content": input,
+      "username": username,
+    //   "creatAt": timer,
+    //   "updatedAt": newtimer,
+    //   "publishdAt":"2023-12-05"
+   }
+});
+
+    var requestOptions = {
+   method: 'POST',
+   headers: myHeaders,
+   body: raw,
+   redirect: 'follow'
+};
+
+    fetch("http://101.35.238.12:1337/api/comments", requestOptions)
+ /*   .then(response => response.text())
+   .then(result => console.log(result))
+   .catch(error => console.log('error', error)) */
+  /*  .then(function(response){
+    if(response.status === 200){
+        alert("发表成功")
+        item.style.display = 'block'
+            text.innerHTML = input
+            tx.value = ''
+        name.innerHTML = username
+        return response.text();
+    }
+    else if(response.status === 400){
+        alert("还有未输入信息")
+        return response.text();
+    }
+   })
+            }
+        }
+    }) */ 
+</script>
+</body>
+</html>

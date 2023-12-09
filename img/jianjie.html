@@ -12,41 +12,69 @@
     <div class="daohang">
         <ul>
             <li>
-                <a href="../img/index.html" target="_blank">首页</a>
+                <a href="../img/index.html">首页</a>
             </li>
             <li>
-                <a href="#" target="_blank">动漫简介</a>
+                <a href="../img/jianjie.html">动漫简介</a>
             </li>
             <li>
-                <a href="#" target="_blank">动漫制作</a>
+                <a href="../img/make.html">动漫制作</a>
             </li>
             <li>
-                <a href="../img/xuanji.html" target="_blank">玄机科技</a>
+                <a href="../img/xuanji.html">玄机科技</a>
             </li>
             <li>
-                <a href="#" target="_blank">作品设定</a>
+                <a href="../img/set.html">作品设定</a>
             </li>
             <li>
-                <a href="../img/introduce.html" target="_blank">角色介绍</a>
+                <a href="../img/introduce.html">角色介绍</a>
             </li>
            <li>
-                <a href="#" target="_blank">超然剪辑</a>
+                <a href="../img/clip.html">超然剪辑</a>
             </li>
             <li>
-                <a href="#" target="_blank">相关漫画</a>
+                <a href="../img/comic.html">相关漫画</a>
             </li>
             <li>
-                <a href="#" target="_blank">讨论</a>
+                <a href="../img/news.html">新闻咨询</a>
             </li>
             <li>
-                <a href="../img/world.html" target="_blank">世界</a>
+                <a href="../img/world.html">世界</a>
             </li>
             <li>
-                <a href="../img/register.html" target="_blank" style="margin-left: 220px;">登录</a>
+                <a href="../img/register.html" style="margin-left: 220px;">登录</a>
                 <img src="../img/photo/登录.png" alt="">
             </li>
         </ul>
     </div>
 </div>
+<div class="music">
+    <audio src="../img/bgm.mp3" autoplay loop></audio>
+<div class="bofang">
+    <div id="q"></div>
+    <bottom id="play" style="display: block;"></bottom>
+    <bottom id="close"  style="display: none;"></bottom>
+</div>
+</div>
+    <video class="backvideo" src="../img/王者荣耀.mp4" autoplay loop muted></video>
+</div>
+</section>
+<script>
+   
+    const start = document.querySelector('#play')
+    const close = document.querySelector("#close")
+    start.addEventListener('click',function(){
+         const audio = document.querySelector('.music>audio')
+       audio.pause()
+        start.style.display = 'none'
+        close.style.display = 'block'
+    })
+   close.addEventListener('click',function(){
+    const audio = document.querySelector('.music>audio')
+     audio.play()
+    start.style.display = 'block'
+    close.style.display = 'none'
+   })
+</script>
 </body>
 </html>

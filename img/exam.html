@@ -1,14 +1,165 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <title>评论区</title>
+  <link rel="stylesheet" href="../css/exam.css">
+  <style>
+    .comment {
+      margin-bottom: 10px;
+    }
+    .comment span {
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <div></div>
-    <a href=""></a>
+ 
 
-    <span></span>
+  <form id="commentForm">
+    <input type="text" id="nameInput" placeholder="姓名" required>
+    <br>
+    <textarea id="commentInput" placeholder="评论内容" required></textarea>
+    <br>
+    <button type="submit" id="submit">发表评论</button>
+
+
+  <div id="comments">
+
+  </div>
+  </form>
+
+  <script>
+    // 评论提交事件处理函数
+    function submitComment(event) {
+      event.preventDefault(); // 阻止表单默认提交行为
+
+      // 获取输入值
+      var nameInput = document.getElementById('nameInput');
+      var commentInput = document.getElementById('commentInput');
+
+      var name = nameInput.value;
+      var comment = commentInput.value;
+
+      // 创建评论元素
+      var commentElement = document.createElement('div');
+      commentElement.className = 'comment';
+      commentElement.innerHTML = '<span>' + name + '</span>: ' + comment;
+
+      // 将评论添加到评论区
+      var commentsContainer = document.getElementById('comments');
+      commentsContainer.appendChild(commentElement);
+
+      // 清空输入框
+      nameInput.value = '';
+      commentInput.value = '';
+    }
+
+    // 监听表单提交事件
+    var commentForm = document.getElementById('commentForm');
+    commentForm.addEventListener('submit', submitComment);
+
+
+
+
+
+
+
+
+
+
+
+
+
+      // 保留评论
+var Username = localStorage.getItem("res3")
+        // console.log(Username)
+        if (Username !== null) {
+            user.innerText = localStorage.getItem("res3")
+            // document.getElementById('user').value = Username
+        }
+        li2.addEventListener('click', function () {
+            location.href = './login/login.html'
+        })
+        li1.addEventListener('click', function () {
+            localStorage.removeItem("res3");
+            location.href = './index.html'
+        })
+        render()
+        console.log(Username)
+        upload.addEventListener('click', function () {
+            if (tx.value.trim() !== '') {
+                const obj = {
+                    stuId: arr.length + 1,
+                    UserName: localStorage.getItem("res3"),
+                    text1: tx.value,
+                    Time: getMyDate()
+                }
+                arr.push(obj)
+                render()
+            }
+            tx.value = ''
+            total.innerHTML = '0/200字'
+        })
+        function render() {
+            thelist.innerHTML = ''
+            for (let i = arr.length - 1; i >= 0; i--) {
+                const div = document.createElement('div')
+                div.innerHTML = `
+              <div class="list">
+                <div class="item">
+                    <i class="avatar"></i>
+                    <div class="info">
+                         <p class="name"> ${arr[i].UserName}</p>
+                      <p class="text1">${arr[i].text1}</p>
+                      <p class="time">${arr[i].Time}</p>
+                      <a href="javascript:" data-id="${i}">删除</a>
+                    </div>
+                  </div>
+              </div>
+            `
+                console.log(arr[i])
+                thelist.appendChild(div)
+            }
+        }
+
+   //获取时间
+        const Time = document.querySelector('.time')
+        function getMyDate() {
+            const date = new Date()
+            let h = date.getHours()
+            let m = date.getMinutes()
+            let s = date.getSeconds()
+            h = h < 10 ? '0' + h : h
+            m = m < 10 ? '0' + m : m
+            s = s < 10 ? '0' + s : s
+            return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()} ${h}:${m}:${s}`
+        }
+        Time.innerHTML = getMyDate()
+        // const arr = []
+        var arr = JSON.parse(localStorage.getItem("a")) || []
+        tx.addEventListener('keyup', function (e) {
+            if (e.key === 'Enter') {
+                if (tx.value.trim() !== '') {
+                    //   item.style.display = 'block'
+                    //   text1.innerHTML = tx.value
+
+                    const obj = {
+                        stuId: arr.length + 1,
+                        UserName: localStorage.getItem("res3"),
+                        text1: tx.value,
+                        Time: getMyDate()
+                    }
+                    arr.push(obj)
+                    localStorage.setItem("a", JSON.stringify(arr))//将数组存入localstorage
+                    //   console.log(obj)
+                    render()
+                }
+                tx.value = ''
+                total.innerHTML = '0/200字'
+            }
+        })
+
+
+  </script>
 </body>
 </html>

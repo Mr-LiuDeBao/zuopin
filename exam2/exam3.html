@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../exam2/exam3.css">
+</head>
+
+<body>
+
+    <div>
+        <input id="name-input" placeholder="输入姓名">
+        <br>
+        <textarea id="comment-input" placeholder="输入评论"></textarea>
+        <button id="submit-button">提交评论</button>
+        <button id="clear-button">清空评论</button>
+    </div>
+    <br>
+    <div id="comment-list"></div>
+    <script>
+        const nameInput = document.getElementById('name-input');
+        const commentInput = document.getElementById('comment-input');
+        const submitButton = document.getElementById('submit-button');
+        const commentList = document.getElementById('comment-list');
+        const clearButton = document.getElementById('clear-button');
+        clearButton.addEventListener('click', function () {
+            // 清空localStorage中的评论数据
+            localStorage.removeItem('comments');
+            // 更新评论列表显示
+            showComments();
+        });
+        submitButton.addEventListener('click', function () {
+            const name = nameInput.value;
+            const comment = commentInput.value;
+            if (name && comment) {
+                const timestamp = new Date().toLocaleString();
+                const commentObject = {
+                    id: Date.now(),
+                    name: name,
+                    comment: comment,
+                    timestamp: timestamp
+                };
+                // 获取之前保存的评论列表（如果有）
+                const comments = JSON.parse(localStorage.getItem('comments')) || [];
+                // 将新评论添加到列表中
+                comments.push(commentObject);
+                // 将更新后的评论列表保存到localStorage中
+                localStorage.setItem('comments', JSON.stringify(comments));
+                // 清空输入框
+                nameInput.value = '';
+                commentInput.value = '';
+                // 更新评论列表显示
+                showComments();
+            }
+        });
+        commentInput.addEventListener('keyup', function (e) {
+            if(e.key==='Enter'){
+                  const name = nameInput.value;
+            const comment = commentInput.value;
+            if (name && comment) {
+                const timestamp = new Date().toLocaleString();
+                const commentObject = {
+                    id: Date.now(),
+                    name: name,
+                    comment: comment,
+                    timestamp: timestamp
+                };
+                // 获取之前保存的评论列表（如果有）
+                const comments = JSON.parse(localStorage.getItem('comments')) || [];
+                // 将新评论添加到列表中
+                comments.push(commentObject);
+                // 将更新后的评论列表保存到localStorage中
+                localStorage.setItem('comments', JSON.stringify(comments));
+                // 清空输入框
+                nameInput.value = '';
+                commentInput.value = '';
+                // 更新评论列表显示
+                showComments();
+            }
+            }
+          
+        });
+        function showComments() {
+            // 清空之前的评论
+            commentList.innerHTML = '';
+            // 获取评论列表
+            const comments = JSON.parse(localStorage.getItem('comments')) || [];
+            // 遍历评论列表
+            comments.forEach(function (comment) {
+                // 创建评论元素
+                const commentElement = document.createElement('div');
+                commentElement.innerHTML = `
+    
+      <div>姓名: ${comment.name}</div>
+      <div>评论: ${comment.comment}</div>
+      <div>时间: ${comment.timestamp}</div>
+      <button class="delete-button" data-id="${comment.id}">删除</button>`;
+                // 将评论元素添加到评论区域
+                commentList.appendChild(commentElement);
+            });
+
+            // 检查评论列表是否为空，根据结果显示或隐藏清空按钮
+            if (comments.length === 0) {
+                clearButton.style.display = 'none';
+            } else {
+                clearButton.style.display = 'block';
+            }
+        }
+        commentList.addEventListener('click', function (event) {
+            if (event.target.classList.contains('delete-button')) {
+                const commentId = event.target.getAttribute('data-id');
+                // 获取之前保存的评论列表
+                const comments = JSON.parse(localStorage.getItem('comments')) || [];
+                // 根据评论的ID找到要删除的评论的索引
+                const commentIndex = comments.findIndex(function (comment) {
+                    return comment.id === parseInt(commentId);
+                });
+                if (commentIndex !== -1) {
+                    // 从评论列表中移除该评论
+                    comments.splice(commentIndex, 1);
+                    // 将更新后的评论列表保存到localStorage中
+                    localStorage.setItem('comments', JSON.stringify(comments));
+                    // 更新评论列表显示
+                    showComments();
+                }
+            }
+        });
+        window.addEventListener('load', showComments);
+    </script>
+</body>
+
+</html>

@@ -3,8 +3,7 @@
     padding: 0;
     box-sizing: border-box;
     cursor: url(../img/photo/鼠标.png),
-    default
-    ;
+    default;
 }
 .header{
     height: 445;
@@ -91,7 +90,16 @@
     margin-left: 310px;
     height: 70px;
 }
-
+.nav>ul>li>img{
+    width: 25px;
+    height: 25px;
+    margin-top: 22px;
+    margin-left: 10px;
+    box-sizing: border-box;
+    float: left;
+    margin-left: 200px;
+    margin-right: 10px;
+  }
 .banner{
     width: 100%;
     height: 480px;

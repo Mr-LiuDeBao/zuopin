@@ -1,0 +1,19 @@
+#commentForm{
+    width: 300px;
+    height: 300px;
+    background-color: red;
+    position: relative;
+}
+#commentInput{
+    float: left;
+}
+#submit{
+    float: left;
+    margin: -9px 0 0 5px;
+}
+#comments{
+    background-color: blue;
+    float: left;
+    margin-top: 20px;
+    position: absolute;
+}
